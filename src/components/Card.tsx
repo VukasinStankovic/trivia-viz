@@ -2,8 +2,9 @@ import type { ReactNode } from "react";
 
 interface CardProps {
     children: ReactNode;
+    customClass: string;
 }
 
-export const Card: React.FC<CardProps> = ({ children }) => {
-    return <div className="h-100 border-pink-700 border-2 col-span-3">{children}</div>;
+export const Card: React.FC<CardProps> = ({ children, customClass }) => {
+    return <div className={`flex flex-col ${customClass} bg-gray-100 p-5 rounded-2xl`}>{children}</div>;
 };
