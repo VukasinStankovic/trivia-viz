@@ -7,7 +7,6 @@ interface CardProps {
     titleType?: "sidebar" | "chart";
 }
 
-// TODO: change title if user select category
 const Card: React.FC<CardProps> = ({ children, customClass = "", title, titleType = "sidebar" }) => {
     return (
         <div className={`flex flex-col ${customClass} bg-gray-100 p-5 rounded-2xl`}>

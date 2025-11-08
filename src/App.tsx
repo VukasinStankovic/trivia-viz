@@ -14,7 +14,7 @@ function App() {
                 <Card
                     children={<QuestionsByCategoryBarChart />}
                     customClass="col-span-4 row-span-4"
-                    title="Number of Questions by Category"
+                    title="Number of Verified Questions by Category"
                     titleType="chart"
                 />
             </div>

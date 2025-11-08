@@ -1,39 +1,11 @@
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell, LabelList } from "recharts";
 import { getColors } from "../../lib/utils";
-import axios from "axios";
-import { useState, useEffect } from "react";
 import { ChartType } from "../../types/chart";
 import Spinner from "../ui/spinner";
+import { useQuestionsByCategory } from "../../hooks/useQuestionsByCategory";
 
 const QuestionsByCategoryBarChart = () => {
-    const [data, setData] = useState<{ name: string; total: number }[]>([]);
-    const [isLoading, setIsLoading] = useState(true);
-
-    const fetchData = async () => {
-        try {
-            setIsLoading(true);
-            const categoriesRes = await axios.get("https://opentdb.com/api_category.php");
-            const categories = categoriesRes.data.trivia_categories;
-
-            const countsRes = await axios.get("https://opentdb.com/api_count_global.php");
-            const counts = countsRes.data.categories;
-
-            const chartData = categories.map((cat: { id: number; name: string }) => ({
-                name: cat.name,
-                total: counts[cat.id]?.total_num_of_questions || 0,
-            }));
-
-            setData(chartData);
-        } catch (error) {
-            console.error("Failed to fetch data", error);
-        } finally {
-            setIsLoading(false);
-        }
-    };
-
-    useEffect(() => {
-        fetchData();
-    }, []);
+    const { data, isLoading } = useQuestionsByCategory();
 
     if (isLoading) {
         return (
