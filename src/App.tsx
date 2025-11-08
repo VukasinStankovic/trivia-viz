@@ -21,12 +21,7 @@ function App() {
             <div className="grid grid-rows-4 grid-cols-4 gap-4 pb-5 h-11/12">
                 <CategoryProvider>
                     <Card children={<Sidepanel />} customClass="col-span-1 row-span-4" title="Categories" />
-                    <Card
-                        children={<QuestionsByDifficultyPieChart />}
-                        customClass="col-span-3 row-span-4"
-                        title="Number of Questions by Difficulty"
-                        titleType="chart"
-                    />
+                    <QuestionsByDifficultyPieChart />
                 </CategoryProvider>
             </div>
         </div>
