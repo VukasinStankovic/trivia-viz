@@ -1,8 +1,8 @@
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell, LabelList } from "recharts";
-import { getColors } from "../lib/utils";
+import { getColors } from "../../lib/utils";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import { ChartType } from "../types/chart";
+import { ChartType } from "../../types/chart";
 
 const QuestionsByCategoryBarChart = () => {
     const [data, setData] = useState<{ name: string; total: number }[]>([]);
