@@ -1,5 +1,5 @@
 import { PieChart, Pie, Cell, ResponsiveContainer } from "recharts";
-import Spinner from "../ui/spinner";
+import Spinner from "../ui/Spinner";
 import { getColors } from "../../lib/utils";
 import { ChartType } from "../../types/chart";
 import { useCategory } from "../../context/CategoryContext";

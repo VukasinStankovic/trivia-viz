@@ -1,11 +1,10 @@
-// src/context/CategoryContext.tsx
 import { createContext, useContext, useState } from "react";
 import type { ReactNode } from "react";
 import type { Category } from "../types/category";
 
 interface CategoryContextType {
     selectedCategory: Category | null;
-    setSelectedCategory: (cat: Category) => void;
+    setSelectedCategory: (cat: Category | null) => void;
 }
 
 const CategoryContext = createContext<CategoryContextType | undefined>(undefined);

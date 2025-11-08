@@ -1,7 +1,7 @@
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell, LabelList } from "recharts";
 import { getColors } from "../../lib/utils";
 import { ChartType } from "../../types/chart";
-import Spinner from "../ui/spinner";
+import Spinner from "../ui/Spinner";
 import { useQuestionsByCategory } from "../../hooks/useQuestionsByCategory";
 
 const QuestionsByCategoryBarChart = () => {
