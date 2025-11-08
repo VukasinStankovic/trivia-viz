@@ -7,6 +7,8 @@ import type { Category } from "../../types/category";
 import type { QuestionCount } from "../../types/question";
 import Spinner from "../ui/spinner";
 
+// TODO: update data if user select category from sidebar
+// Move fetching to hooks/ dir
 const QuestionsByDifficultyPieChart = ({ isAnimationActive = true }: { isAnimationActive?: boolean }) => {
     const [totals, setTotals] = useState<QuestionCount>({
         easy: 0,

@@ -3,12 +3,15 @@ import { getColors } from "../../lib/utils";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { ChartType } from "../../types/chart";
+import Spinner from "../ui/spinner";
 
 const QuestionsByCategoryBarChart = () => {
     const [data, setData] = useState<{ name: string; total: number }[]>([]);
+    const [isLoading, setIsLoading] = useState(true);
 
     const fetchData = async () => {
         try {
+            setIsLoading(true);
             const categoriesRes = await axios.get("https://opentdb.com/api_category.php");
             const categories = categoriesRes.data.trivia_categories;
 
@@ -23,12 +26,22 @@ const QuestionsByCategoryBarChart = () => {
             setData(chartData);
         } catch (error) {
             console.error("Failed to fetch data", error);
+        } finally {
+            setIsLoading(false);
         }
     };
 
     useEffect(() => {
         fetchData();
     }, []);
+
+    if (isLoading) {
+        return (
+            <div className="flex items-center justify-center w-full h-full">
+                <Spinner />
+            </div>
+        );
+    }
 
     return (
         <ResponsiveContainer width="100%" height="100%">
